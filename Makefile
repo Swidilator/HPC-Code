@@ -1,5 +1,7 @@
 CC=gcc
 CFLAGS=-c -Wall -fopenmp
 
+all: ex1
+
 ex1 : 
-	$(CC) $(CFLAGS) -o ex1.out
+	$(CC) $(CFLAGS) $@.c -o $@.out

@@ -3,7 +3,10 @@
 #include <math.h>
 #include "structs.h"
 
-void quickSort_Serial( struct indist *left, struct indist *right)
+typedef enum { false,
+               true } bool;
+
+void quickSort_Serial(struct indist *left, struct indist *right)
 {
     if (right > left)
     {
@@ -92,6 +95,43 @@ void mergeSort_Serial(struct indist **importList, int left, int right, int point
                 importList[k]->index = temp[j - left]->index;
                 j = j - 1;
             }
+
+            
+        }
+        free(temp);
+    }
+
+    
+}
+
+void bubbleSort_Serial(struct indist **importList, int points)
+{
+    int i = points - 1;
+    bool sorting = true;
+    while (i >= 1 && sorting == true)
+    {
+        bool swopped = false;
+        for (int j = 0; j < i - 1; j++)
+        {
+            if (importList[j]->dist > importList[j + 1]->dist)
+            {
+                //swop
+                double t = importList[j]->dist;
+                int tInd = importList[j]->index;
+
+                importList[j]->dist = importList[j + 1]->dist;
+                importList[j]->index = importList[j + 1]->index;
+
+                importList[j + 1]->dist = t;
+                importList[j + 1]->index = tInd;
+
+                swopped = true;
+            }
+        }
+        if(swopped == false){
+            sorting = false;
+        }else{
+            i = i - 1;
         }
     }
 }

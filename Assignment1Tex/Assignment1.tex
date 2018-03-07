@@ -1,0 +1,107 @@
+\documentclass[a4paper,twoside,11pt]{report}
+% rubber: setlist arguments --shell-escape -synctex=1
+
+\input{preamble.tex}
+\usepackage{etoolbox}
+\raggedbottom
+\linespread{1}
+% Title Page
+\title{Annotated Bibliography}
+\author{Kyle Weiher}
+%\setlength{\parskip}{1cm plus2mm minus1mm}
+
+\setlength{\parindent}{0cm}
+
+
+\begin{document}
+	\onecolumn
+	\thispagestyle{empty}
+	
+	
+	\setcounter{page}{0}
+	%\addcontentsline{toc}{chapter}{Preface}
+	\ 
+	\begin{center}
+		
+		{
+			\Large \bf \sc K-nearest neighbour (kNN) Serial vs Parallel\\
+			\large Assignment 1\\[20pt]
+			\large High Performance Computing\\[20pt]
+			\large School of Computer Science and Applied Mathematics\\
+			\large University of the Witwatersrand\\[20pt]
+			\normalsize
+			Kyle Weiher\\
+			1116087\\[20pt]
+			%Supervised by\\Dr Richard Klein\\[10pt]
+			\today
+		}
+		%\end{center}
+		\vfill
+		\includegraphics[width=4cm]{images/wits}
+		\vfill
+		%\begin{center}
+		
+		%{\scriptsize \input{version.tex}} % Add or remove for GIT versioning
+		\vfill
+		%A Thesis submitted to the Faculty of Science, University of the Witwatersrand, Johannesburg, in fulfilment of the requirements for the degree of Doctor of Philosophy\\[10pt]
+		%\small{Ethics Clearance Number: H14/03/06}\\
+	\end{center}
+\vfill
+\newpage
+\thispagestyle{plain}
+
+\phantomsection
+\section*{Introduction}
+Given a dataset, with \textit{m} rows of datapoints, each point in $\mathbb{R}^d$. Given \textit{n} query points that fall within the domain of the dataset, the k Nearest Neighbours (kNN) search problem involves finding the \textit{k} nearest neighbours in a dataset to each query point, with regards to a specific distance metric. This problem appears in a number of areas, such as kNN classification and regression in machine learning. ******CITATION******
+
+In this report an algorithm will be described, namely the bruteforce solution to the problem, which has the following basic structure:
+\begin{enumerate}
+	\item For a specific query point, compute the distance from said point to every point in the dataset.
+	\item Sort the distances in ascending order.
+	\item Take the first k points with the shortest distances.
+	\item Repeat for each point in the query set.
+\end{enumerate}
+
+The main focus of this experiment is to compare the runtimes of the algorithm, differing search algorithms and distance metrics, with regards to serial or parallel execution.
+
+\hrulefill
+\phantomsection
+\section*{Methodology}
+A number of different distance metrics are available, and as such two will be tested in this experiment, namely Euclidean distance, and Manhattan distance. Furthermore, different search algorithms will be compared, namely quick-sort, merge-sort, and bubble-sort.
+
+The experiment will cover a variety of variations to the above distance metrics and search algorithms, as well as testing between parallel and serial versions. There will be no mixing of parallel and serial, however, as holistically the kNN algorithm will be entirely parallel or entirely serial, and not a mix of both. Furthermore, both task and section constructs will be tested.
+
+A number of considerations will be made when testing the different set-ups that the kNN algorithm can use:
+\begin{itemize}
+	\item As the distance calculation and the sorting are not reliant on each other in terms of which algorithm is picked for both parallel and serial tests, when testing the different distance algorithms, the sorting algorithm used will remain the same.
+	\item The fact that the amount of query points used, \textit{n}, is somewhat of a global multiplier on run time, one test focussing on how \textit{n} influences runtime will be performed, and then for the rest of the tests \textit{n} will remain constant.
+	\item As said above, the algorithm will be tested as either entirely parallel, or entirely serial, the will be no mixing of this parameter.
+	\item \textbf{Perhaps add more with regards to relations}
+\end{itemize}
+
+\hrulefill
+\phantomsection
+\section*{Experimental Setup}
+
+The data used in these tests is randomly generated at run time. Before any computations take place, both the reference dataset and the query dataset are created, and then tests begin. The data is of type double, the code is written in C, and the parallel framework used is OpenMP.
+
+The specifications of the machine that ran the tests are as follows:
+\begin{itemize}
+	\item \textbf{OS}: Ubuntu 17.10 64bit
+	\item \textbf{Kernel}: 4.15.7-041507-generic
+	\item \textbf{Compiler}: gcc 7.2.0
+	\item \textbf{CPU}: Intel i7-4720HQ (8) @ 3.600GHz
+	\item \textbf{Memory}: 16GiB
+\end{itemize}
+
+\hrulefill
+\phantomsection
+\section*{Results}
+
+
+
+\newpage
+
+%Tsai, Yi-Hsuan & Hung, Wei-Chih & Schulter, Samuel & Sohn, Kihyuk & Yang, Ming-Hsuan & Chandraker, Manmohan. (2018). Learning to Adapt Structured Output Space for Semantic Segmentation.
+
+\end{document}          

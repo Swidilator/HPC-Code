@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS= -Wall -fopenmp -lm -O3
+CFLAGS= -Wall -fopenmp -lm -O3 -g
 
 all: clean ex1 assignment
 

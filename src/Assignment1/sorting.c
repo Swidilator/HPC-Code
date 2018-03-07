@@ -275,20 +275,18 @@ void mergeSort_Parallel_Sections(struct indist **importList, int left, int right
         }
         else
         {
-            {
-                omp_set_nested(1);
+            omp_set_nested(1);
 #pragma omp parallel shared(importList)
-                {
+            {
 #pragma omp sections
+                {
+#pragma omp section
                     {
+                        mergeSort_Parallel_Sections(importList, left, mid, mid - left + 1, pointsTotal);
+                    }
 #pragma omp section
-                        {
-                            mergeSort_Parallel_Sections(importList, left, mid, mid - left + 1, pointsTotal);
-                        }
-#pragma omp section
-                        {
-                            mergeSort_Parallel_Sections(importList, mid + 1, right, right - (mid), pointsTotal);
-                        }
+                    {
+                        mergeSort_Parallel_Sections(importList, mid + 1, right, right - (mid), pointsTotal);
                     }
                 }
             }
@@ -401,5 +399,171 @@ void mergeSort_Parallel_Tasks(struct indist **importList, int left, int right, i
             }
         }
         free(temp);
+    }
+}
+
+void bubbleSort_Parallel_Serial(struct indist **importList, int left, int right, int points)
+{
+    int i = right;
+    bool sorting = true;
+    while (i >= 1 && sorting == true)
+    {
+        bool swopped = false;
+        for (int j = left; j < i - 1; j++)
+        {
+            if (importList[j]->dist > importList[j + 1]->dist)
+            {
+                //swop
+                double t = importList[j]->dist;
+                int tInd = importList[j]->index;
+
+                importList[j]->dist = importList[j + 1]->dist;
+                importList[j]->index = importList[j + 1]->index;
+
+                importList[j + 1]->dist = t;
+                importList[j + 1]->index = tInd;
+
+                swopped = true;
+            }
+        }
+        if (swopped == false)
+        {
+            sorting = false;
+        }
+        else
+        {
+            i = i - 1;
+        }
+    }
+}
+
+void bubbleSort_Parallel_Tasks(struct indist **importList, int left, int right, int points, int pointsTotal, int num_threads)
+{
+    omp_set_num_threads(num_threads);
+    int mid = (right + left) / 2;
+
+    if ((((double)right - (double)left) / (double)pointsTotal) >= (1 / (double)num_threads))
+    {
+#pragma omp task
+        {
+            bubbleSort_Parallel_Tasks(importList, left, mid, mid - left + 1, pointsTotal, num_threads);
+        }
+
+#pragma omp task
+        {
+            bubbleSort_Parallel_Tasks(importList, mid + 1, right, right - mid, pointsTotal, num_threads);
+        }
+
+        struct indist **temp = malloc((points) * sizeof(struct indist *));
+        for (int i = mid; i >= left; i--)
+        {
+            struct indist *pair = malloc(sizeof(struct indist));
+            pair->dist = importList[i]->dist;
+            pair->index = importList[i]->index;
+            temp[i - left] = pair;
+        }
+
+        for (int j = mid + 1; j <= right; j++)
+        {
+            struct indist *pair = malloc(sizeof(struct indist *));
+
+            pair->dist = importList[j]->dist;
+            pair->index = importList[j]->index;
+            temp[right + mid + 1 - j - left] = pair;
+        }
+
+        int i = left;
+        int j = right;
+
+        for (int k = left; k <= right; k++)
+        {
+            if (temp[i - left]->dist < temp[j - left]->dist)
+            {
+                importList[k]->dist = temp[i - left]->dist;
+                importList[k]->index = temp[i - left]->index;
+                free(temp[i - left]);
+                i = i + 1;
+            }
+            else
+            {
+                importList[k]->dist = temp[j - left]->dist;
+                importList[k]->index = temp[j - left]->index;
+                free(temp[j - left]);
+                j = j - 1;
+            }
+        }
+        free(temp);
+    }
+    else
+    {
+        bubbleSort_Parallel_Serial(importList, left, right, points);
+    }
+}
+
+void bubbleSort_Parallel_Sections(struct indist **importList, int left, int right, int points, int pointsTotal, int num_threads)
+{
+    omp_set_num_threads(num_threads);
+    int mid = (right + left) / 2;
+
+    if ((((double)right - (double)left) / (double)pointsTotal) >= (1 / (double)num_threads))
+    {
+        omp_set_nested(1);
+#pragma omp parallel shared(importList)
+        {
+#pragma omp sections
+            {
+#pragma omp section
+                {
+                    bubbleSort_Parallel_Sections(importList, left, mid, mid - left + 1, pointsTotal, num_threads);
+                }
+#pragma omp section
+                {
+                    bubbleSort_Parallel_Sections(importList, mid + 1, right, right - mid, pointsTotal, num_threads);
+                }
+            }
+        }
+        struct indist **temp = malloc((points) * sizeof(struct indist *));
+        for (int i = mid; i >= left; i--)
+        {
+            struct indist *pair = malloc(sizeof(struct indist));
+            pair->dist = importList[i]->dist;
+            pair->index = importList[i]->index;
+            temp[i - left] = pair;
+        }
+
+        for (int j = mid + 1; j <= right; j++)
+        {
+            struct indist *pair = malloc(sizeof(struct indist *));
+
+            pair->dist = importList[j]->dist;
+            pair->index = importList[j]->index;
+            temp[right + mid + 1 - j - left] = pair;
+        }
+
+        int i = left;
+        int j = right;
+
+        for (int k = left; k <= right; k++)
+        {
+            if (temp[i - left]->dist < temp[j - left]->dist)
+            {
+                importList[k]->dist = temp[i - left]->dist;
+                importList[k]->index = temp[i - left]->index;
+                free(temp[i - left]);
+                i = i + 1;
+            }
+            else
+            {
+                importList[k]->dist = temp[j - left]->dist;
+                importList[k]->index = temp[j - left]->index;
+                free(temp[j - left]);
+                j = j - 1;
+            }
+        }
+        free(temp);
+    }
+    else
+    {
+        bubbleSort_Parallel_Serial(importList, left, right, points);
     }
 }

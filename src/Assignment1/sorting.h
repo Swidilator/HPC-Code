@@ -4,8 +4,6 @@
 
 #include "structs.h"
 
-
-
 void quickSort_Serial(struct indist **importList, int left, int right, int points);
 
 void mergeSort_Serial(struct indist **importList, int left, int right, int points);
@@ -20,6 +18,10 @@ void quickSort_Parallel_Tasks(struct indist **importList, int left, int right, i
 
 void mergeSort_Parallel_Tasks(struct indist **importList, int left, int right, int points, int pointsTotal);
 
-void bubbleSort_Parallel(struct indist **importList, int points);
+void bubbleSort_Parallel_Serial(struct indist **importList, int left, int right, int points);
+
+void bubbleSort_Parallel_Sections(struct indist **importList, int left, int right, int points, int pointsTotal, int num_threads);
+
+void bubbleSort_Parallel_Tasks(struct indist **importList, int left, int right, int points, int pointsTotal, int num_threads);
 
 #endif

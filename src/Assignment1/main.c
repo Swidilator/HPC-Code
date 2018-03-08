@@ -23,15 +23,15 @@ int K = 5;
 int nArray[1] = {3}; int nSize = 1;
 
 
-int mArray[4] = {10000, 50000, 100000, 500000}; int mSize = 4;
-//int mArray[1] = {200000}; int mSize = 1;
+//int mArray[4] = {10000, 50000, 100000, 200000}; int mSize = 4;
+int mArray[1] = {200000}; int mSize = 1;
 
 
-//int dArray[4] = {3, 30, 300, 3000}; int dSize = 4;
-int dArray[1] = {30}; int dSize = 1;
+int dArray[4] = {3, 30, 300, 3000}; int dSize = 4;
+//int dArray[1] = {30}; int dSize = 1;
 
 
-int SORT_FUNC = 2; //0: Quicksort      1: Mergesort    2: Bubblesort
+int SORT_FUNC = 0; //0: Quicksort      1: Mergesort    2: Bubblesort
 int DIST_FUNC = 0; //0: Euclidian     1: Manhattan
 int PAR = 0;
 int TASKS = 0;
@@ -41,7 +41,7 @@ int main(void)
     omp_set_num_threads(8);
     srand(time(NULL));
 
-    printf("\n\nParallel: %d  Tasks: %d  Sort: %d  Dist: %d\n",PAR, TASKS, SORT_FUNC, DIST_FUNC);
+    printf("\n\nParallel: %d  Tasks: %d  Sort: %d  Dist: %d\n", PAR, TASKS, SORT_FUNC, DIST_FUNC);
 
     for (int k = 0; k < dSize; k++)
     {
@@ -73,7 +73,8 @@ int main(void)
                 //printf("Total:\tsorting: %f\tdistance: %f\n", totalReport->sorting, totalReport->distance);
 
                 printf("m: %d\t\tn: %d\t\td: %d\n", mArray[i], nArray[j], dArray[k]);
-                printf("Total:\tsorting: %f\tdistance: %f\n", totalReport->sorting, totalReport->distance);
+                double totTime = totalReport->sorting + totalReport->distance;
+                printf("Total: %f\tsorting: %f\tdistance: %f\n",totTime, totalReport->sorting/totTime, totalReport->distance/totTime);
 
 
                 for(int a = 0; a < nArray[j]; a++){

@@ -1,0 +1,236 @@
+
+
+
+Values of n:
+
+Parallel: 0  Tasks: 0  Sort: 0  Dist: 0
+m: 200000               n: 1            d: 30
+Total: 0.032916 sorting: 0.597934       distance: 0.402066
+m: 200000               n: 5            d: 30
+Total: 0.146645 sorting: 0.643546       distance: 0.356454
+m: 200000               n: 10           d: 30
+Total: 0.290281 sorting: 0.643183       distance: 0.356817
+m: 200000               n: 15           d: 30
+Total: 0.432257 sorting: 0.648027       distance: 0.351973
+
+
+Parallel: 1  Tasks: 0  Sort: 0  Dist: 0
+m: 200000               n: 1            d: 30
+Total: 0.019778 sorting: 0.650254       distance: 0.349746
+m: 200000               n: 5            d: 30
+Total: 0.083631 sorting: 0.686541       distance: 0.313459
+m: 200000               n: 10           d: 30
+Total: 0.163993 sorting: 0.679454       distance: 0.320546
+m: 200000               n: 15           d: 30
+Total: 0.241572 sorting: 0.684025       distance: 0.315975
+
+
+Parallel: 1  Tasks: 1  Sort: 0  Dist: 0
+m: 200000               n: 1            d: 30
+Total: 0.016857 sorting: 0.549202       distance: 0.450798
+m: 200000               n: 5            d: 30
+Total: 0.082168 sorting: 0.682496       distance: 0.317504
+m: 200000               n: 10           d: 30
+Total: 0.168036 sorting: 0.676409       distance: 0.323591
+m: 200000               n: 15           d: 30
+Total: 0.238036 sorting: 0.706109       distance: 0.293891
+
+------------------------------------------------------------------
+
+Quicksort:
+
+Parallel: 0  Tasks: 0  Sort: 0  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.004439 sorting: 0.474641       distance: 0.525359
+m: 50000                n: 3            d: 30
+Total: 0.022078 sorting: 0.567655       distance: 0.432345
+m: 100000               n: 3            d: 30
+Total: 0.044641 sorting: 0.596085       distance: 0.403915
+m: 500000               n: 3            d: 30
+Total: 0.243818 sorting: 0.625469       distance: 0.374531
+
+
+Parallel: 1  Tasks: 0  Sort: 0  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.027246 sorting: 0.514893       distance: 0.485107
+m: 50000                n: 3            d: 30
+Total: 0.030445 sorting: 0.658762       distance: 0.341238
+m: 100000               n: 3            d: 30
+Total: 0.032820 sorting: 0.666943       distance: 0.333057
+m: 200000               n: 3            d: 30
+Total: 0.051186 sorting: 0.706992       distance: 0.293008
+
+
+Parallel: 1  Tasks: 1  Sort: 0  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.025577 sorting: 0.550295       distance: 0.449705
+m: 50000                n: 3            d: 30
+Total: 0.023450 sorting: 0.623859       distance: 0.376141
+m: 100000               n: 3            d: 30
+Total: 0.030738 sorting: 0.640308       distance: 0.359692
+m: 200000               n: 3            d: 30
+Total: 0.049527 sorting: 0.651639       distance: 0.348361
+
+Mergesort
+
+Parallel: 0  Tasks: 0  Sort: 1  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.017926 sorting: 0.896724       distance: 0.103276
+m: 50000                n: 3            d: 30
+Total: 0.103497 sorting: 0.916562       distance: 0.083438
+m: 100000               n: 3            d: 30
+Total: 0.217152 sorting: 0.924593       distance: 0.075407
+m: 500000               n: 3            d: 30
+Total: 1.249596 sorting: 0.934100       distance: 0.065900
+
+===
+Parallel: 1  Tasks: 0  Sort: 1  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.023404 sorting: 0.786384       distance: 0.213616
+m: 50000                n: 3            d: 30
+Total: 0.062275 sorting: 0.855905       distance: 0.144095
+m: 100000               n: 3            d: 30
+Total: 0.125248 sorting: 0.919524       distance: 0.080476
+m: 500000               n: 3            d: 30
+Total: 0.537504 sorting: 0.944349       distance: 0.055651
+
+
+Parallel: 1  Tasks: 1  Sort: 1  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.013735 sorting: 0.689599       distance: 0.310401
+m: 50000                n: 3            d: 30
+Total: 0.044038 sorting: 0.893762       distance: 0.106238
+m: 100000               n: 3            d: 30
+Total: 0.079928 sorting: 0.874526       distance: 0.125474
+m: 500000               n: 3            d: 30
+Total: 0.451017 sorting: 0.933306       distance: 0.066694
+
+Bubblesort - max 250000
+
+Parallel: 0  Tasks: 0  Sort: 2  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.465961 	sorting: 0.995930       distance: 0.004070
+m: 50000                n: 3            d: 30
+Total: 13.276480        sorting: 0.999333       distance: 0.000667
+m: 100000               n: 3            d: 30
+Total: 53.944891        sorting: 0.999656       distance: 0.000344
+m: 200000               n: 3            d: 30
+Total: 233.285920       sorting: 0.999849       distance: 0.000151
+
+
+Parallel: 1  Tasks: 0  Sort: 2  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.025477 sorting: 0.900621       distance: 0.099379
+m: 50000                n: 3            d: 30
+Total: 0.345701 sorting: 0.985147       distance: 0.014853
+m: 100000               n: 3            d: 30
+Total: 1.330655 sorting: 0.995434       distance: 0.004566
+m: 200000               n: 3            d: 30
+Total: 6.652369 sorting: 0.998253       distance: 0.001747
+
+
+Parallel: 1  Tasks: 1  Sort: 2  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.014675 sorting: 0.747461       distance: 0.252539
+m: 50000                n: 3            d: 30
+Total: 0.335467 sorting: 0.987236       distance: 0.012764
+m: 100000               n: 3            d: 30
+Total: 1.346635 sorting: 0.995755       distance: 0.004245
+m: 200000               n: 3            d: 30
+Total: 6.612104 sorting: 0.997962       distance: 0.002038
+
+------------------------------------------------------------------
+
+Euclidean - m
+
+Parallel: 0  Tasks: 0  Sort: 0  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.004284 sorting: 0.531300       distance: 0.468700
+m: 50000                n: 3            d: 30
+Total: 0.022552 sorting: 0.596153       distance: 0.403847
+m: 100000               n: 3            d: 30
+Total: 0.044205 sorting: 0.576440       distance: 0.423560
+m: 200000               n: 3            d: 30
+Total: 0.090315 sorting: 0.607028       distance: 0.392972
+
+
+Parallel: 1  Tasks: 0  Sort: 0  Dist: 0
+m: 10000                n: 3            d: 30
+Total: 0.027706 sorting: 0.697263       distance: 0.302737
+m: 50000                n: 3            d: 30
+Total: 0.025473 sorting: 0.669848       distance: 0.330152
+m: 100000               n: 3            d: 30
+Total: 0.024868 sorting: 0.722680       distance: 0.277320
+m: 200000               n: 3            d: 30
+Total: 0.044590 sorting: 0.678596       distance: 0.321404
+
+Manhattan - m
+
+Parallel: 0  Tasks: 0  Sort: 0  Dist: 1
+m: 10000                n: 3            d: 30
+Total: 0.004296 sorting: 0.466801       distance: 0.533199
+m: 50000                n: 3            d: 30
+Total: 0.022051 sorting: 0.530889       distance: 0.469111
+m: 100000               n: 3            d: 30
+Total: 0.048303 sorting: 0.571619       distance: 0.428381
+m: 200000               n: 3            d: 30
+Total: 0.116698 sorting: 0.657308       distance: 0.342692
+
+
+Parallel: 1  Tasks: 0  Sort: 0  Dist: 1
+m: 10000                n: 3            d: 30
+Total: 0.020943 sorting: 0.649636       distance: 0.350364
+m: 50000                n: 3            d: 30
+Total: 0.030578 sorting: 0.695255       distance: 0.304745
+m: 100000               n: 3            d: 30
+Total: 0.029821 sorting: 0.737066       distance: 0.262934
+m: 200000               n: 3            d: 30
+Total: 0.057256 sorting: 0.740252       distance: 0.259748
+
+-----
+
+Euclidean - d
+
+Parallel: 0  Tasks: 0  Sort: 0  Dist: 0
+m: 200000               n: 3            d: 3
+Total: 0.073966 sorting: 0.748764       distance: 0.251236
+m: 200000               n: 3            d: 30
+Total: 0.091819 sorting: 0.608475       distance: 0.391525
+m: 200000               n: 3            d: 300
+Total: 0.249631 sorting: 0.214937       distance: 0.785063
+m: 200000               n: 3            d: 3000
+Total: 1.695478 sorting: 0.031264       distance: 0.968736
+
+
+Parallel: 1  Tasks: 0  Sort: 0  Dist: 0
+m: 200000               n: 3            d: 3
+Total: 0.041813 sorting: 0.691389       distance: 0.308611
+m: 200000               n: 3            d: 30
+Total: 0.050014 sorting: 0.686283       distance: 0.313717
+m: 200000               n: 3            d: 300
+Total: 0.111275 sorting: 0.284103       distance: 0.715897
+m: 200000               n: 3            d: 3000
+Total: 0.747117 sorting: 0.032587       distance: 0.967413
+
+Manhattan - d
+
+Parallel: 0  Tasks: 0  Sort: 0  Dist: 1
+m: 200000               n: 3            d: 3
+Total: 0.162400 sorting: 0.870505       distance: 0.129495
+m: 200000               n: 3            d: 30
+Total: 0.124531 sorting: 0.660179       distance: 0.339821
+m: 200000               n: 3            d: 300
+Total: 0.319219 sorting: 0.168175       distance: 0.831825
+m: 200000               n: 3            d: 3000
+Total: 2.325372 sorting: 0.020377       distance: 0.979623
+
+
+Parallel: 1  Tasks: 0  Sort: 0  Dist: 1
+m: 200000               n: 3            d: 3
+Total: 0.090278 sorting: 0.826730       distance: 0.173270
+m: 200000               n: 3            d: 30
+Total: 0.057902 sorting: 0.782437       distance: 0.217563
+m: 200000               n: 3            d: 300
+Total: 0.128319 sorting: 0.278693       distance: 0.721307
+m: 200000               n: 3            d: 3000
+Total: 0.801413 sorting: 0.040401       distance: 0.959599

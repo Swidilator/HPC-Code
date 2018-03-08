@@ -53,7 +53,7 @@
 
 \phantomsection
 \section*{Introduction}
-Given a dataset, with \textit{m} rows of datapoints, each point in $\mathbb{R}^d$. Given \textit{n} query points that fall within the domain of the dataset, the k Nearest Neighbours (kNN) search problem involves finding the \textit{k} nearest neighbours in a dataset to each query point, with regards to a specific distance metric. This problem appears in a number of areas, such as kNN classification and regression in machine learning. ******CITATION******
+Given a dataset, with \textit{m} rows of datapoints, each point in $\mathbb{R}^d$. Given \textit{n} query points that fall within the domain of the dataset, the k Nearest Neighbours (kNN) search problem involves finding the \textit{k} nearest neighbours in a dataset to each query point, with regards to a specific distance metric. This problem appears in a number of areas, such as kNN classification and regression in machine learning.
 
 In this report an algorithm will be described, namely the bruteforce solution to the problem, which has the following basic structure:
 \begin{enumerate}
@@ -76,7 +76,6 @@ A number of considerations will be made when testing the different set-ups that 
 	\item As the distance calculation and the sorting are not reliant on each other in terms of which algorithm is picked for both parallel and serial tests, when testing the different distance algorithms, the sorting algorithm used will remain the same.
 	\item The fact that the amount of query points used, \textit{n}, is somewhat of a global multiplier on run time, one test focussing on how \textit{n} influences runtime will be performed, and then for the rest of the tests \textit{n} will remain constant.
 	\item As said above, the algorithm will be tested as either entirely parallel, or entirely serial, the will be no mixing of this parameter.
-	\item \textbf{Perhaps add more with regards to relations}
 \end{itemize}
 
 \phantomsection
